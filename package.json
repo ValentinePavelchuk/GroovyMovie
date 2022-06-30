@@ -12,13 +12,17 @@
     "prettier:fix": "prettier --write .",
     "eslint-prettier": "eslint --fix . && prettier --write . --ignore-unknown"
   },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add ."
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint-prettier && git add -A ."
+      "pre-commit": "lint-staged"
     }
-  },
-  "lint-staged": {
-    "**/*": "eslint-prettier"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
