@@ -1,0 +1,7 @@
+.eslintrc.json
+README.md
+package.json
+prettierrc.json
+tsconfig.json
+next.config.js
+yarn-error.log
