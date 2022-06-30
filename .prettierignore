@@ -1,3 +1,13 @@
 build
 node_modules
 .next
+.eslintrc.json
+README.md
+package.json
+prettierrc.json
+tsconfig.json
+next.config.js
+yarn-error.log
+.eslintignore
+.gitignore
+.prettierignore
