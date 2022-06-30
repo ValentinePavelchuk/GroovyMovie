@@ -1,23 +1,19 @@
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { createWrapper } from "next-redux-wrapper";
-import rootReducer from "./reducers";
+import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { productApi } from "./product/product.api";
+import { cartReducer } from "./cart/cart.slice";
+import { usersApi } from "./users/users.api";
 
-// initial states here
-const initalState = {};
+export const store = configureStore({
+  reducer: {
+    [productApi.reducerPath]: productApi.reducer,
+    cart: cartReducer,
+    [usersApi.reducerPath]: usersApi.reducer,
+  },
+  // middleware: new MiddlewareArray().concat(productApi.middleware, logger),
+});
 
-// middleware
-const middleware = [thunk];
-
-// creating store
-export const store = createStore(
-    rootReducer,
-    initalState,
-    composeWithDevTools(applyMiddleware(...middleware))
-);
-
-// assigning store to next wrapper
-const makeStore = () => store;
-
-export const wrapper = createWrapper(makeStore);
+export const useAppDispatch = () => useDispatch();
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export type AppThunk = ThunkAction<void, RootState, unknown, Action>;

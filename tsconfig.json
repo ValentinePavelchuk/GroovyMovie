@@ -1,20 +1,93 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"noImplicitAny": false,
+		"target": "es5",
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"jsx": "preserve",
+		"jsxFactory": "h",
+		"allowJs": true,
+		"sourceMap": true,
+		"noImplicitUseStrict": false,
+		"noImplicitThis": false,
+		"downlevelIteration": true,
+		"types": ["cypress"],
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext",
+			"es2015"
+		],
+		"skipLibCheck": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"baseUrl": "./src/",
+		"esModuleInterop": true,
+		"paths": {
+			"@actions/*": [
+				"actions/*"
+			],
+			"@assets/*": [
+				"assets/*"
+			],
+			"@common/*": [
+				"common/*"
+			],
+			"@components/*": [
+				"components/*"
+			],
+			"@contexts/*": [
+				"contexts/*"
+			],
+			"@css/*": [
+				"css/*"
+			],
+			"@functions/*": [
+				"functions/*"
+			],
+			"@helpers/*": [
+				"helpers/*"
+			],
+			"@hooks/*": [
+				"hooks/*"
+			],
+			"@json/*": [
+				"json/*"
+			],
+			"@layouts/*": [
+				"layouts/*"
+			],
+			"@/pages/*": [
+				"pages/*"
+			],
+			"@reducers/*": [
+				"reducers/*"
+			],
+			"@selectors/*": [
+				"selectors/*"
+			],
+			"@services/*": [
+				"services/*"
+			],
+			"@interfaces/*": [
+				"interfaces/*"
+			]
+		},
+		"isolatedModules": true,
+		"incremental": true
+	},
+	"exclude": [
+		"node_modules",
+		".next",
+		".idea"
+	],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"custom.d.ts",
+		"yupMethods.d.ts"
+	]
 }

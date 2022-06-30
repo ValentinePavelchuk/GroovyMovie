@@ -1,6 +1,6 @@
-import { ReactElement } from "react";
-import styles from "./Hello.module.scss";
+import React, { ReactElement } from "react";
 import clsx from "clsx";
+import styles from "./Hello.module.scss";
 
 export enum BackgroundColor {
   red = "red",

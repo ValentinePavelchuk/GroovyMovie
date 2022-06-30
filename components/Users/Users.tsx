@@ -1,19 +1,33 @@
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {getUsers} from "../../store/actions/userAction";
+import React, { useState } from "react";
+import { useGetUsersQuery } from "../../store/users/users.api";
+import { IUser } from "../../store/users/user.types";
 
 const Users = () => {
-    const dispatch = useDispatch()
-    const usersList = useSelector(state => state.usersList)
-    const {loading, error, users} = usersList
-    useEffect(() => {
-        dispatch(getUsers())
-    }, [dispatch])
-    return (
-        <>
-            {loading ? "Loading..." : error ? error.message : users.map(u => <h3>{u.name}</h3>)}
-        </>
-    )
-}
+  const [limit, setLimit] = useState(1);
+  const { data, error, isFetching } = useGetUsersQuery(limit);
 
-export default Users
+  const onClick = () => {
+    setLimit((prevState) => prevState + 1);
+  };
+
+  return (
+    <>
+      {error && "ERROR"}
+      {data?.map((item: IUser) => {
+        return (
+          <p
+            key={item.username}
+          >{`${item.name.firstname} ${item.name.lastname}`}</p>
+        );
+      })}
+      {isFetching && "Loading"}
+      {limit <= 10 && (
+        <button type="button" onClick={onClick}>
+          More users
+        </button>
+      )}
+    </>
+  );
+};
+
+export default Users;

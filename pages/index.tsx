@@ -1,6 +1,7 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Hello, {BackgroundColor} from "../components/Hello/Hello";
+import type { NextPage } from "next";
+import Head from "next/head";
+import Products from "../components/Products/Products";
+import Hello, { BackgroundColor } from "../components/Hello/Hello";
 import Users from "../components/Users/Users";
 
 const Home: NextPage = () => {
@@ -13,12 +14,12 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        {/*<Hello title="Hello Friend" background={BackgroundColor.blue} />*/}
-          <Users />
+        {/* <Hello title="Hello Friend" background={BackgroundColor.blue} /> */}
+        <Users />
+        <Products />
       </main>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
