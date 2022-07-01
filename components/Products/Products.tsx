@@ -15,6 +15,7 @@ const Products: FC = () => {
           <Image
             key={product.title}
             height="100px"
+            width="100px"
             src={product.image}
             alt={product.title}
           />

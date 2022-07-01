@@ -6,6 +6,9 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    domains: [process.env.NEXT_PUBLIC_DOMAIN],
+  },
 }
 
 module.exports = nextConfig

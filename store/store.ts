@@ -10,7 +10,8 @@ export const store = configureStore({
     cart: cartReducer,
     [usersApi.reducerPath]: usersApi.reducer,
   },
-  // middleware: new MiddlewareArray().concat(productApi.middleware, logger),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(productApi.middleware),
 });
 
 export const useAppDispatch = () => useDispatch();
