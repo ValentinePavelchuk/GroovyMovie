@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Cart from "@components/Cart/Cart";
 import Products from "../components/Products/Products";
 import Hello, { BackgroundColor } from "../components/Hello/Hello";
 import Users from "../components/Users/Users";
@@ -16,7 +17,10 @@ const Home: NextPage = () => {
       <main>
         {/* <Hello title="Hello Friend" background={BackgroundColor.blue} /> */}
         <Users />
-        <Products />
+        <div style={{ display: "flex" }}>
+          <Products />
+          <Cart />
+        </div>
       </main>
     </div>
   );

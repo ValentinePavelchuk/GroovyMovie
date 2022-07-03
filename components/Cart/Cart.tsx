@@ -1,17 +1,11 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
-import { useGetProductsQuery } from "../../store/product/product.api";
 import { IProduct } from "../../store/product/product.types";
 
-const Products: FC = () => {
-  const { data, isLoading, error } = useGetProductsQuery(6);
-  const { addItem } = useActions();
+const Cart: FC = () => {
+  const { removeItem } = useActions();
   const { cart } = useAppSelector((state) => state);
-
-  const isInCart = (id) => {
-    return cart.some((p) => p.id === id);
-  };
 
   return (
     <div
@@ -21,9 +15,7 @@ const Products: FC = () => {
         width: "fit-content",
       }}
     >
-      {isLoading && "LOADING"}
-      {error && "ERROR"}
-      {data?.map((product: IProduct) => {
+      {cart?.map((product: IProduct) => {
         return (
           <React.Fragment key={product.title}>
             <Image
@@ -32,17 +24,13 @@ const Products: FC = () => {
               src={product.image}
               alt={product.title}
             />
-            {isInCart(product.id) ? (
-              "Added"
-            ) : (
-              <button type="button" onClick={() => addItem(product)}>
-                Add to Cart
-              </button>
-            )}
+            <button type="button" onClick={() => removeItem(product)}>
+              Remove from cart
+            </button>
           </React.Fragment>
         );
       })}
     </div>
   );
 };
-export default Products;
+export default Cart;
