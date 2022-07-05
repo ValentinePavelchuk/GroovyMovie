@@ -18,10 +18,10 @@ const Cart: FC = () => {
       {cart?.map((product: IProduct) => {
         return (
           <React.Fragment key={product.title}>
-            <Image
+            <img
               height="100px"
               width="100px"
-              src={product.image}
+              src={product.thumbnailUrl}
               alt={product.title}
             />
             <button type="button" onClick={() => removeItem(product)}>

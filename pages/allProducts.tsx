@@ -1,11 +1,15 @@
 import React, { FC } from "react";
 import Image from "next/image";
 import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
-import { useGetProductsQuery } from "../../store/product/product.api";
-import { IProduct } from "../../store/product/product.types";
+import { GetStaticProps } from "next";
+import axios from "axios";
+import { IProduct } from "../store/product/product.types";
 
-const Products: FC = () => {
-  const { data, isLoading, error } = useGetProductsQuery(6);
+interface IProducts {
+  data: any;
+}
+
+const AllProducts: FC<IProducts> = ({ data }) => {
   const { addItem } = useActions();
   const { cart } = useAppSelector((state) => state);
 
@@ -21,8 +25,6 @@ const Products: FC = () => {
         width: "fit-content",
       }}
     >
-      {isLoading && "LOADING"}
-      {error && "ERROR"}
       {data?.map((product: IProduct) => {
         return (
           <React.Fragment key={product.title}>
@@ -45,4 +47,17 @@ const Products: FC = () => {
     </div>
   );
 };
-export default Products;
+
+export const getStaticProps: GetStaticProps<IProducts> = async () => {
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_DOMAIN}/photos/?_start=0&_limit=100`
+  );
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export default AllProducts;

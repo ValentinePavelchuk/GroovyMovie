@@ -100,9 +100,6 @@
 //		"react/forbid-prop-types": [
 //			"warn"
 //		],
-//		"react/require-default-props": [
-//			0
-//		],
 //		"react/no-unused-prop-types": [
 //			1
 //		],
@@ -136,22 +133,6 @@
 //		],
 //		"react/button-has-type": [
 //			"off"
-//		],
-//		"jsx-a11y/anchor-is-valid": [
-//			"error",
-//			{
-//				"components": [
-//					"Link"
-//				],
-//				"specialLink": [
-//					"hrefLeft",
-//					"hrefRight"
-//				],
-//				"aspects": [
-//					"invalidHref",
-//					"preferButton"
-//				]
-//			}
 //		],
 //		"consistent-return": [
 //			"warn"
@@ -196,6 +177,24 @@
 //			"error",
 //			"never"
 //		],
+		"no-unsafe-optional-chaining": [
+			1
+		],
+		"jsx-a11y/anchor-is-valid": [
+			"error",
+			{
+				"components": [
+					"Link"
+				],
+				"aspects": [
+					"invalidHref",
+					"preferButton"
+				]
+			}
+		],
+		"react/require-default-props": [
+			0
+		],
 		"react/jsx-props-no-spreading": [
 			"off"
 		],

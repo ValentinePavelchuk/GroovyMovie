@@ -1,14 +1,7 @@
-interface IRating {
-  rate: number;
-  count: number;
-}
-
 export interface IProduct {
+  albumId: number;
   id: number;
   title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: IRating;
+  url: string;
+  thumbnailUrl: string;
 }

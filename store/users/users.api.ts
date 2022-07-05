@@ -3,10 +3,10 @@ import { IUser } from "./user.types";
 
 export const usersApi = createApi({
   reducerPath: "users",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://fakestoreapi.com/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_DOMAIN }),
   endpoints: (build) => ({
     getUsers: build.query<IUser[], number>({
-      query: (limit: 1) => `users?limit=${limit}`,
+      query: (limit: 1) => `users?_start=0&_limit=${limit}`,
     }),
   }),
 });

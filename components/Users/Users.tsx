@@ -14,11 +14,7 @@ const Users = () => {
     <>
       {error && "ERROR"}
       {data?.map((item: IUser) => {
-        return (
-          <p
-            key={item.username}
-          >{`${item.name.firstname} ${item.name.lastname}`}</p>
-        );
+        return <p key={item.username}>{`${item.name}`}</p>;
       })}
       {isFetching && "Loading"}
       {limit <= 10 && (
