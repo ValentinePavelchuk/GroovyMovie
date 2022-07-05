@@ -1,7 +1,6 @@
 import React, { FC } from "react";
-import Image from "next/image";
 import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
-import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import axios from "axios";
 import { useRouter } from "next/router";
