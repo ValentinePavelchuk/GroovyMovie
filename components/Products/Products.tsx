@@ -1,11 +1,14 @@
 import React, { FC } from "react";
-import Image from "next/image";
 import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
 import { useGetProductsQuery } from "../../store/product/product.api";
 import { IProduct } from "../../store/product/product.types";
 
-const Products: FC = () => {
-  const { data, isLoading, error } = useGetProductsQuery(6);
+interface IProducts {
+  productsCount?: number;
+}
+
+const Products: FC<IProducts> = ({ productsCount = 10 }) => {
+  const { data, isLoading, error } = useGetProductsQuery();
   const { addItem } = useActions();
   const { cart } = useAppSelector((state) => state);
 
@@ -23,7 +26,7 @@ const Products: FC = () => {
     >
       {isLoading && "LOADING"}
       {error && "ERROR"}
-      {data?.map((product: IProduct) => {
+      {data?.slice(0, productsCount).map((product: IProduct) => {
         return (
           <React.Fragment key={product.title}>
             <img

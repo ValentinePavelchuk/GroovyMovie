@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         {/* <Hello title="Hello Friend" background={BackgroundColor.blue} /> */}
         <Users />
         <div style={{ display: "flex" }}>
-          <Products />
+          <Products productsCount={6} />
           <Cart />
         </div>
       </main>

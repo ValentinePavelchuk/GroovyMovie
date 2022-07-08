@@ -4,7 +4,7 @@ import { IUser } from "../../store/users/user.types";
 
 const Users = () => {
   const [limit, setLimit] = useState(1);
-  const { data, error, isFetching } = useGetUsersQuery(limit);
+  const { data, error, isFetching } = useGetUsersQuery();
 
   const onClick = () => {
     setLimit((prevState) => prevState + 1);
@@ -13,11 +13,11 @@ const Users = () => {
   return (
     <>
       {error && "ERROR"}
-      {data?.map((item: IUser) => {
+      {data?.slice(0, limit).map((item: IUser) => {
         return <p key={item.username}>{`${item.name}`}</p>;
       })}
       {isFetching && "Loading"}
-      {limit <= 10 && (
+      {limit <= 9 && (
         <button type="button" onClick={onClick}>
           More users
         </button>

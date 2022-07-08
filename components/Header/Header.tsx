@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useGetAllProductsQuery } from "../../store/product/product.api";
+import { useGetProductsQuery } from "../../store/product/product.api";
 
 export const Header: FC = () => {
   const router = useRouter();
   const currentProductId = router.asPath.split("/").pop();
   const nextProduct = currentProductId && parseInt(currentProductId, 10) + 1;
   const prevProduct = currentProductId && parseInt(currentProductId, 10) - 1;
-  const { data } = useGetAllProductsQuery();
+  const { data } = useGetProductsQuery();
   const limitOfProducts = data && data?.length + 1;
 
   return (

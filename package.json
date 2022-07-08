@@ -11,7 +11,8 @@
     "prettier": "prettier * --check",
     "prettier:fix": "prettier --write .",
     "eslint-prettier": "eslint --fix . && prettier --write . --ignore-unknown",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "echo 'Husky test start'"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
