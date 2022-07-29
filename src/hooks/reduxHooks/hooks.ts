@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import { bindActionCreators } from "redux";
-import type { AppDispatch, RootState } from "../../store/store";
+import type { AppDispatch, AppState } from "../../store/store";
 import { cartActions } from "../../store/cart/cart.slice";
+import { productsActions } from "../../store/product/product.slice";
 
 const allActions = {
   ...cartActions,
+  ...productsActions,
 };
 
 export const useActions = () => {
@@ -15,4 +17,4 @@ export const useActions = () => {
 };
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppSelector: TypedUseSelectorHook<AppState> = useSelector;

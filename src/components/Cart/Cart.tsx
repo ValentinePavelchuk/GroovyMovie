@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
+import { useActions, useAppSelector } from "../../hooks/reduxHooks/hooks";
 import { IProduct } from "../../store/product/product.types";
 
 const Cart: FC = () => {

@@ -12,3 +12,4 @@ export const productApi = createApi({
 });
 
 export const { useGetProductsQuery } = productApi;
+export const { getProducts } = productApi.endpoints;

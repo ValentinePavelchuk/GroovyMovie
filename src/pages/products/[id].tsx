@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
 import { GetStaticProps, GetStaticPropsContext } from "next";
 import { ParsedUrlQuery } from "node:querystring";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { useActions, useAppSelector } from "../../hooks/reduxHooks/hooks";
 import { IProduct } from "../../store/product/product.types";
 
 interface IProducts {

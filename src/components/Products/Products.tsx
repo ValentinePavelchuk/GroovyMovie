@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { useActions, useAppSelector } from "@hooks/reduxHooks/hooks";
+import { useActions, useAppSelector } from "../../hooks/reduxHooks/hooks";
 import { useGetProductsQuery } from "../../store/product/product.api";
 import { IProduct } from "../../store/product/product.types";
+import { makeStore } from "../../store/store";
 
 interface IProducts {
   productsCount?: number;
@@ -11,6 +12,7 @@ const Products: FC<IProducts> = ({ productsCount = 10 }) => {
   const { data, isLoading, error } = useGetProductsQuery();
   const { addItem } = useActions();
   const { cart } = useAppSelector((state) => state);
+  const store = makeStore();
 
   const isInCart = (id) => {
     return cart.some((p) => p.id === id);
