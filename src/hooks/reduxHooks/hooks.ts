@@ -4,10 +4,12 @@ import { bindActionCreators } from "redux";
 import type { AppDispatch, AppState } from "../../store/store";
 import { cartActions } from "../../store/cart/cart.slice";
 import { productsActions } from "../../store/product/product.slice";
+import { kinoActions } from "../../store/kino/kino.slice";
 
 const allActions = {
   ...cartActions,
   ...productsActions,
+  ...kinoActions,
 };
 
 export const useActions = () => {

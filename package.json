@@ -10,21 +10,22 @@
     "lint:fix": "eslint --fix .",
     "prettier": "prettier * --check",
     "prettier:fix": "prettier --write .",
-    "eslint-prettier": "eslint --fix . && prettier --write . --ignore-unknown",
+    "eslint-prettier": "eslint --fix . --cache --max-warnings=-1 && prettier --write . --ignore-unknown",
     "prepare": "husky install",
     "test": "echo 'Husky test start'"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "src/**/*.{ts,tsx,css,scss}": [
       "prettier --write",
       "eslint --fix",
       "git add ."
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",

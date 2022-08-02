@@ -177,6 +177,8 @@
 //			"error",
 //			"never"
 //		],
+		"no-param-reassign": ["error", { "props": false }],
+		"@typescript-eslint/ban-ts-comment": "off",
 		"no-unsafe-optional-chaining": [
 			1
 		],

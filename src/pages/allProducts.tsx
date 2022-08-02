@@ -10,40 +10,12 @@ const AllProducts: FC = () => {
   return <Products productsCount={100} />;
 };
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const { data } = await axios.get(
-//     `${process.env.NEXT_PUBLIC_DOMAIN}/photos/?_start=0&_limit=100`
-//   );
-//   const store = makeStore();
-//
-//   // const state = store.getState();
-//   //
-//   await store.dispatch(getProducts.initiate());
-//
-//   // await store.dispatch(productsActions.addProduct(data));
-//
-//   return {
-//     props: {
-//       data,
-//     },
-//     revalidate: 60,
-//   };
-// };
-export const getServerSideProps = wrapper.getServerSideProps(
-  (store) =>
-    async ({ params }) => {
-      const { data } = await axios.get(
-        `${process.env.NEXT_PUBLIC_DOMAIN}/photos/?_start=0&_limit=100`
-      );
+export const getStaticProps: GetStaticProps = async () => {
+  const store = makeStore();
 
-      await store.dispatch(productsSlice.actions.addProduct(data));
+  await store.dispatch(getProducts.initiate());
 
-      return {
-        props: {
-          data,
-        },
-      };
-    }
-);
+  return { props: { initialReduxState: store.getState() } };
+};
 
 export default AllProducts;

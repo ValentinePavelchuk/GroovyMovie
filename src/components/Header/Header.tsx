@@ -2,16 +2,13 @@ import { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useGetProductsQuery } from "../../store/product/product.api";
-import { useAppSelector } from "../../hooks/reduxHooks/hooks";
 
 export const Header: FC = () => {
   const router = useRouter();
   const [page, setPage] = useState(0);
   const { data } = useGetProductsQuery();
   const limitOfProducts = data && data?.length + 1;
-  const { products } = useAppSelector((state) => state);
 
-  console.log("prod", products);
   useEffect(() => {
     return setPage(Number(router?.asPath?.split("/").pop()));
   }, [router?.asPath]);
@@ -22,6 +19,11 @@ export const Header: FC = () => {
         <li>
           <Link href="/">
             <a>Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/topMovies">
+            <a>Top Movies</a>
           </Link>
         </li>
         <li>

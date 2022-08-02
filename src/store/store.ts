@@ -12,6 +12,7 @@ import { cartReducer } from "./cart/cart.slice";
 import { usersApi } from "./users/users.api";
 import { kinoApi } from "./kino/kino.api";
 import { productsReducer } from "./product/product.slice";
+import { kinoReducer } from "./kino/kino.slice";
 
 export const makeStore = (preloadedState = {}) =>
   configureStore({
@@ -20,11 +21,12 @@ export const makeStore = (preloadedState = {}) =>
       [kinoApi.reducerPath]: kinoApi.reducer,
       cart: cartReducer,
       products: productsReducer,
+      kino: kinoReducer,
       [usersApi.reducerPath]: usersApi.reducer,
     },
     preloadedState,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(productApi.middleware),
+      getDefaultMiddleware().concat(productApi.middleware, kinoApi.middleware),
   });
 
 let store: AppStore;

@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import axios from "axios";
 import Cart from "../components/Cart/Cart";
 import Products from "../components/Products/Products";
 import Hello, { BackgroundColor } from "../components/Hello/Hello";
