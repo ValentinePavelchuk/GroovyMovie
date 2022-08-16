@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import Image from "next/image";
 
 const TopMovieCard: FC<any> = ({ movie, index }) => {
   const {
@@ -26,7 +27,7 @@ const TopMovieCard: FC<any> = ({ movie, index }) => {
   return (
     <div>
       <div>
-        <img src={poster?.previewUrl} alt={name} />
+        <Image src={poster?.previewUrl} alt={name} />
       </div>
       <div>{name}</div>
       <div>
