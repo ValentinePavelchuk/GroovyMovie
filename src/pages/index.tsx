@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Sand box</title>
+        <title>Groovy Movie</title>
         <meta name="description" content="My sandbox" />
         <link rel="icon" href="/public/favicon.ico" />
       </Head>

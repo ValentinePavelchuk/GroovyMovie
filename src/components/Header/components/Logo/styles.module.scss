@@ -1,0 +1,15 @@
+.logo {
+  display: grid;
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  grid-area: logo;
+  text-align: left;
+
+  & span {
+    color: #fff;
+  }
+}

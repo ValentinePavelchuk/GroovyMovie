@@ -12,6 +12,7 @@
     "prettier:fix": "prettier --write .",
     "eslint-prettier": "eslint --fix . --cache --max-warnings=-1 && prettier --write . --ignore-unknown",
     "prepare": "husky install",
+    "stylelint:fix": "npx stylelint **/*.scss --fix",
     "test": "echo 'Husky test start'"
   },
   "husky": {
@@ -21,7 +22,7 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx,css,scss}":  "prettier --write"
+    "*.{ts,tsx,css,scss}": "prettier --write"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.3",
@@ -60,6 +61,13 @@
     "prettier": "2.7.1",
     "sass": "^1.53.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "stylelint": "^14.11.0",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-order": "^5.0.0"
   }
 }

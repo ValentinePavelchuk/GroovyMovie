@@ -1,7 +1,10 @@
 import { FC, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useGetProductsQuery } from "../../store/product/product.api";
+import Logo from "@components/Header/components/Logo";
+import { useGetProductsQuery } from "@store/product/product.api";
+import Search from "./components/Search";
+import styles from "./styles.module.scss";
 
 export const Header: FC = () => {
   const router = useRouter();
@@ -14,7 +17,9 @@ export const Header: FC = () => {
   }, [router?.asPath]);
 
   return (
-    <div>
+    <div className={styles.header}>
+      <Logo />
+      <Search />
       <ul>
         <li>
           <Link href="/">

@@ -22,7 +22,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"resolveJsonModule": true,
-		"baseUrl": "./",
+		"baseUrl": "./src/",
 		"esModuleInterop": true,
 		"paths": {
 			"@actions/*": [
@@ -60,6 +60,9 @@
 			],
 			"@/pages/*": [
 				"pages/*"
+			],
+			"@store/*": [
+				"store/*"
 			],
 			"@reducers/*": [
 				"reducers/*"

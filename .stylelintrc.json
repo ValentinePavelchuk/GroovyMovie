@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    "stylelint-order"
+  ],
+  "extends": ["stylelint-config-prettier", "stylelint-config-standard-scss", "stylelint-config-idiomatic-order", "stylelint-config-css-modules"],
+  "rules": {
+    "declaration-block-no-redundant-longhand-properties": [
+      true,
+      {
+        "ignoreShorthands": ["grid-template"]
+      }
+    ]
+  }
+}

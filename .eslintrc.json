@@ -277,6 +277,7 @@
 				"jsx": "never",
 				"ts": "never",
 				"tsx": "never",
+				"api": "always",
 				"svg": "always",
 				"css": "always",
 				"scss": "always",
